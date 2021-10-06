@@ -10,7 +10,7 @@ const mongo = require("./shared/mongo");
 const postsRoutes = require("./routes/posts.routes");
 const usersRoutes = require("./routes/users.routes");
 const middleware = require("./shared/middleware");
-
+const PORT = process.env.PORT || 5000;
 const app = express();
 //MongoDB connections
 async function loadApp() {
@@ -27,7 +27,7 @@ async function loadApp() {
     //Logging middleware
     app.use(middleware.loginMiddleware);
 
-    app.listen(process.env.PORT || 5000, () => {
+    app.listen(PORT, () => {
       console.log(`Server started At ${process.env.PORT}`);
     });
   } catch (err) {
